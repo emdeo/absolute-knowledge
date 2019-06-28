@@ -14,4 +14,17 @@ public class Code {
 	@ManyToOne
     @JoinColumn(name ="fk_partie")
     private Partie partie;
+	public String titre="";
+	public Partie getPartie() {
+		return partie;
+	}
+	public void setPartie(Partie partie) {
+		this.partie = partie;
+	}
+	public String getTitre() {
+		return titre;
+	}
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
 }

@@ -14,4 +14,17 @@ public class Quizz {
 	@ManyToOne
     @JoinColumn(name ="fk_cours")
     private Cours cours;
+	public String titre="";
+	public Cours getCours() {
+		return cours;
+	}
+	public void setCours(Cours cours) {
+		this.cours = cours;
+	}
+	public String getTitre() {
+		return titre;
+	}
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
 }
