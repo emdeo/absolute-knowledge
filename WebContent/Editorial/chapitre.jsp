@@ -27,6 +27,7 @@
 					<ul class="icons">
 						<li class="active"><a href="index.html"><span>Accueil</span></a></li>
 						<li><a href="cours.html"><span>Cours</span></a></li>
+						<li><a href="quizz.jsp"><span>Quizz</span></a></li>
 					</ul>
 				</header>
 
