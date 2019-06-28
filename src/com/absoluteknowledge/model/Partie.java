@@ -16,6 +16,13 @@ public class Partie {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	private int index;
+	public int getIndex() {
+		return index;
+	}
+	public void setIndex(int index) {
+		this.index = index;
+	}
 	@ManyToOne
     @JoinColumn(name ="fk_chapitre")
     private Chapitre chapitre;
@@ -25,7 +32,7 @@ public class Partie {
 	List<Code> codes= new ArrayList<Code>();
 	@OneToMany(cascade=CascadeType.ALL,mappedBy ="partie")
 	List<Paragraphe> paragraphes= new ArrayList<Paragraphe>();
-	public String titre="";
+	public String titre=""; 
 	public Chapitre getChapitre() {
 		return chapitre;
 	}

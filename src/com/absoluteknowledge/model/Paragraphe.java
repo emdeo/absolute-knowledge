@@ -11,6 +11,20 @@ public class Paragraphe {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	private int index;
+	private String contenu="";
+	public String getContenu() {
+		return contenu;
+	}
+	public void setContenu(String contenu) {
+		this.contenu = contenu;
+	}
+	public int getIndex() {
+		return index;
+	}
+	public void setIndex(int index) {
+		this.index = index;
+	}
 	@ManyToOne
     @JoinColumn(name ="fk_partie")
     private Partie partie;

@@ -11,6 +11,13 @@ public class Code {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	String contenu="";
+	public String getContenu() {
+		return contenu;
+	}
+	public void setContenu(String contenu) {
+		this.contenu = contenu;
+	}
 	@ManyToOne
     @JoinColumn(name ="fk_partie")
     private Partie partie;

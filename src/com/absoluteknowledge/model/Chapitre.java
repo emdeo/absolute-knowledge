@@ -16,7 +16,13 @@ public class Chapitre {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	
+	private int index;
+	public int getIndex() {
+		return index;
+	}
+	public void setIndex(int index) {
+		this.index = index;
+	}
 	@ManyToOne
     @JoinColumn(name ="fk_cours")
     private Cours cours;

@@ -19,7 +19,21 @@ public class Cours {
 	List<Chapitre> chapitres = new ArrayList<Chapitre>();
 	@OneToMany(cascade=CascadeType.ALL,mappedBy ="cours")
 	List<Quizz> quizzs= new ArrayList<Quizz>();
-	public String titre="";
+	private String titre="";
+	private String resume="";
+	public String getResume() {
+		return resume;
+	}
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	private String image="";
 	public List<Chapitre> getChapitres() {
 		return chapitres;
 	}
