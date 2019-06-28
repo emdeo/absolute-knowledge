@@ -53,7 +53,6 @@ table {
 
 body {
 	-webkit-text-size-adjust: none;
-	background: yellow;
 }
 
 mark {
@@ -3493,7 +3492,7 @@ input, select, textarea {
 	#footer .copyright {
 		color: #9fa3a6;
 		font-size: 0.9em;
-		text-align: center;
+		text-align : center;
 	}
 
 		#footer .copyright a {
