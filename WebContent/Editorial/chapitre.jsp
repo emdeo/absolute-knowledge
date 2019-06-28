@@ -34,7 +34,14 @@
 				<!-- Content -->
 				<section>
 					<header class="main">
-						<h1>Bienvenue au chapitre 1</h1>
+						<h1>
+
+							<%
+								/* Nom du chapitre */
+								out.println("Bienvenue sur le chapitre 1");
+							%>
+
+						</h1>
 					</header>
 
 					<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
