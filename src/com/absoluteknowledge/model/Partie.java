@@ -21,12 +21,12 @@ public class Partie implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	private int index;
-	public int getIndex() {
-		return index;
+	private int indexee;
+	public int getIndexee() {
+		return indexee;
 	}
-	public void setIndex(int index) {
-		this.index = index;
+	public void setIndexee(int index) {
+		this.indexee = index;
 	}
 	@ManyToOne
     @JoinColumn(name ="fk_chapitre")

@@ -10,15 +10,19 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Image implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3533151447516932507L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	private int index;
-	public int getIndex() {
-		return index;
+	private int indexee;
+	public int getIndexee() {
+		return indexee;
 	}
 	public void setIndex(int index) {
-		this.index = index;
+		this.indexee = index;
 	}
 	@ManyToOne
     @JoinColumn(name ="fk_partie")

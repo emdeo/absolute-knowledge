@@ -13,6 +13,10 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Cours implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3895256227227854546L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;

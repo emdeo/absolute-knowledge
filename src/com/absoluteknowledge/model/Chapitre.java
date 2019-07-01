@@ -14,15 +14,19 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Chapitre implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5349443150932030363L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	private int index;
-	public int getIndex() {
-		return index;
+	private int indexee;
+	public int getIndexee() {
+		return indexee;
 	}
-	public void setIndex(int index) {
-		this.index = index;
+	public void setIndexe(int index) {
+		this.indexee = index;
 	}
 	@ManyToOne
     @JoinColumn(name ="fk_cours")

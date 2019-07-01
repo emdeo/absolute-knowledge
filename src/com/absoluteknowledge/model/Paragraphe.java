@@ -13,7 +13,7 @@ public class Paragraphe implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	private int index;
+	private int indexee;
 	private String contenu="";
 	public String getContenu() {
 		return contenu;
@@ -21,11 +21,11 @@ public class Paragraphe implements Serializable{
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
 	}
-	public int getIndex() {
-		return index;
+	public int getIndexee() {
+		return indexee;
 	}
-	public void setIndex(int index) {
-		this.index = index;
+	public void setIndexee(int index) {
+		this.indexee = index;
 	}
 	@ManyToOne
     @JoinColumn(name ="fk_partie")

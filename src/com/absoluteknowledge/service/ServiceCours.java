@@ -38,7 +38,10 @@ public class ServiceCours {
 			e.printStackTrace();
 		} finally {
 			if (session != null) {
-				session.close();
+				//Je ne ferme pas la session parceque dans le main ou je test le service, quand je tente d'acceder a
+				//une relation de type lazyy j'ai une erreur failed to lazily initialize a collection of role: could not initialize proxy - no Session
+				// vu que je ne suis plus dans transacitonal j'ai plus acces a la session 
+				//session.close();
 			}
 		}
 		return cour2;

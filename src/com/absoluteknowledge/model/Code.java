@@ -14,6 +14,13 @@ public class Code implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	String contenu="";
+	private int indexee;
+	public int getIndexee() {
+		return indexee;
+	}
+	public void setIndexee(int indexee) {
+		this.indexee = indexee;
+	}
 	public String getContenu() {
 		return contenu;
 	}
