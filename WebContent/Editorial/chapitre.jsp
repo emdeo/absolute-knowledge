@@ -27,18 +27,26 @@
 					<ul class="icons">
 						<li class="active"><a href="index.html"><span>Accueil</span></a></li>
 						<li><a href="cours.html"><span>Cours</span></a></li>
+						<li><a href="quizz.jsp"><span>Quizz</span></a></li>
 					</ul>
 				</header>
 
 				<!-- Content -->
 				<section>
 					<header class="main">
-						<h1>Ceci est le chapitre 2</h1>
+						<h1>
+
+							<%
+								/* Nom du chapitre */
+								out.println("Bienvenue sur le chapitre 1");
+							%>
+
+						</h1>
 					</header>
 
 					<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
 
-					<h2 id="chap2parag1">Paragraphe 1</h2>
+					<h2 id="chap1parag1">Paragraphe 1</h2>
 					<p>Donec eget ex magna. Interdum et malesuada fames ac ante
 						ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet
 						dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas
@@ -67,7 +75,7 @@
 
 					<hr class="major" />
 
-					<h2 id="chap2parag2">Paragraphe 2</h2>
+					<h2 id="chap1parag2">Paragraphe 2</h2>
 					<p>Donec eget ex magna. Interdum et malesuada fames ac ante
 						ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet
 						dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas
@@ -95,7 +103,7 @@
 
 					<hr class="major" />
 
-					<h2 id="chap2parag3">Paragraphe 3</h2>
+					<h2 id="chap1parag3">Paragraphe 3</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad
 						litora torquent per conubia nostra, per inceptos himenaeos. Etiam
@@ -116,7 +124,7 @@
 
 					<hr class="major" />
 
-					<h2 id="chap2parag4">Paragraphe 4</h2>
+					<h2 id="chap1parag4">Paragraphe 4</h2>
 					<p>Donec eget ex magna. Interdum et malesuada fames ac ante
 						ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet
 						dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas
@@ -182,6 +190,7 @@
 								<li><a href="chapitre2.jsp#chap2parag3">Paragraphe 3</a></li>
 								<li><a href="chapitre2.jsp#chap2parag4">Paragraphe 4</a></li>
 							</ul></li>
+
 					</ul>
 				</nav>
 
