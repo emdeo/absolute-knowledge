@@ -1,5 +1,6 @@
 package com.absoluteknowledge.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +14,22 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Chapitre {
+public class Chapitre implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5349443150932030363L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+
+	private int indexee;
+	public int getIndexee() {
+		return indexee;
+	}
+	public void setIndexe(int index) {
+		this.indexee = index;
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "fk_cours")
