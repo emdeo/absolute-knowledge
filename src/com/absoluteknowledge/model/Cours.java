@@ -26,6 +26,10 @@ public class Cours implements Serializable{
 	List<Quizz> quizzs= new ArrayList<Quizz>();
 	private String titre="";
 	private String resume="";
+	
+	public long getId() {
+		return id;
+	}
 	public String getResume() {
 		return resume;
 	}
