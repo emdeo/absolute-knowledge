@@ -68,6 +68,10 @@ public class Cours implements Serializable{
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
+	
+	public long getId() {
+		return this.id;
+	}
 
 	@Override
 	public String toString() {
