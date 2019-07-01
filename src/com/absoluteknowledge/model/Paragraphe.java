@@ -33,16 +33,6 @@ public class Paragraphe implements Serializable{
 	private Partie partie;
 	public String titre = "";
 	
-	// Ajout� par Maithaa, Julien, Manu
-	private String contenu;
-
-	public String getContenu() {
-		return contenu;
-	}
-
-	public void setContenu(String contenu) {
-		this.contenu = contenu;
-	}
 
 	public Partie getPartie() {
 		return partie;
