@@ -20,5 +20,6 @@
 		<mapping class="com.absoluteknowledge.model.Paragraphe" />
 		<mapping class="com.absoluteknowledge.model.Partie" />
 		<mapping class="com.absoluteknowledge.model.Quizz" />	
+		<mapping class="com.absoluteknowledge.model.QuestionQcm" />	
 	</session-factory>
 </hibernate-configuration>

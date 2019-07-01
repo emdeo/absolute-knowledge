@@ -33,8 +33,6 @@
 				</header>
 
 				<%
-					/* ID du cours */
-
 					List<Partie> ListePartChap1 = new ArrayList<Partie>();
 					List<Partie> ListePartChap2 = new ArrayList<Partie>();
 					List<Partie> ListePartChap3 = new ArrayList<Partie>();
@@ -80,7 +78,7 @@
 
 					Chap4.setParties(ListePartChap4);
 					Chap4.setTitre("4ème chapitre");
-					
+
 					Cours C1 = new Cours();
 					List<Chapitre> ListeChap = new ArrayList<Chapitre>();
 					ListeChap.add(Chap1);
@@ -90,6 +88,61 @@
 
 					C1.setChapitres(ListeChap);
 					C1.setTitre("Mon cours GIT");
+
+					/*
+						Listes de paragraphes, images et codes du chapitre 1 (partie 1).
+						On ne s'attend à aucun doublon parmi les index de chaque objet (image, paragraphe ou code).
+					*/
+					List<Image> lstImg = new ArrayList<Image>();
+					List<Paragraphe> lstParag = new ArrayList<Paragraphe>();
+					List<Code> lstCode = new ArrayList<Code>();
+
+					Image im1 = new Image();
+					im1.setTitre("Image 1");
+					im1.setIndex(1);
+
+					Image im2 = new Image();
+					im2.setTitre("Image 2");
+					im2.setIndex(4);
+
+					Code cod1 = new Code();
+					cod1.setContenu("Hello World");
+					cod1.setIndexee(2);
+
+					Code cod2 = new Code();
+					cod2.setContenu("Hello M2I");
+					cod2.setIndexee(6);
+
+					Paragraphe p1 = new Paragraphe();
+					p1.setContenu("Explication de paragraphe P1");
+					p1.setIndexee(3);
+
+					Paragraphe p2 = new Paragraphe();
+					p2.setContenu("Explication de paragraphe P2");
+					p2.setIndexee(5);
+
+					lstImg.add(im1);
+					lstImg.add(im2);
+					lstParag.add(p1);
+					lstParag.add(p2);
+					lstCode.add(cod1);
+					lstCode.add(cod2);
+
+					Map<Integer, Object> ListeGlobale = new HashMap<Integer, Object>();
+
+					for (int i = 0; i < lstImg.size(); i++) {
+						ListeGlobale.put(lstImg.get(i).getIndexee(), lstImg.get(i));
+					}
+
+					for (int i = 0; i < lstParag.size(); i++) {
+						ListeGlobale.put(lstParag.get(i).getIndexee(), lstParag.get(i));
+					}
+
+					for (int i = 0; i < lstCode.size(); i++) {
+						ListeGlobale.put(lstCode.get(i).getIndexee(), lstCode.get(i));
+					}
+
+					System.out.println("ListeGlobale : " + ListeGlobale);
 				%>
 
 				<!-- Content -->
@@ -108,51 +161,36 @@
 						</h1>
 					</header>
 
-					<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
-
 					<%
 						for (Partie p : chap.getParties()) {
 							out.println("<h2 id=\"" + p.getTitre() + "\">" + p.getTitre() + "</h2>");
-							out.println("<p>Donec eget ex magna. Interdum et malesuada fames ac ante"
-									+ "ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet"
-									+ "dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas"
-									+ "enim auctor sit amet. Pellentesque leo mauris, consectetur id"
-									+ "ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia"
-									+ "malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium"
-									+ "pulvinar mauris. Curabitur sapien risus, commodo eget turpis at,"
-									+ "elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>");
-							out.println("<p>Donec eget ex magna. Interdum et malesuada fames ac ante"
-									+ "ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet"
-									+ "dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas"
-									+ "enim auctor sit amet. Pellentesque leo mauris, consectetur id"
-									+ "ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia"
-									+ "malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium"
-									+ "pulvinar mauris. Curabitur sapien risus, commodo eget turpis at,"
-									+ "elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>");
-							out.println("<p>Donec eget ex magna. Interdum et malesuada fames ac ante"
-									+ "ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet"
-									+ "dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas"
-									+ "enim auctor sit amet. Pellentesque leo mauris, consectetur id"
-									+ "ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia"
-									+ "malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium"
-									+ "pulvinar mauris. Curabitur sapien risus, commodo eget turpis at,"
-									+ "elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>");
-							out.println("<p>Donec eget ex magna. Interdum et malesuada fames ac ante"
-									+ "ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet"
-									+ "dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas"
-									+ "enim auctor sit amet. Pellentesque leo mauris, consectetur id"
-									+ "ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia"
-									+ "malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium"
-									+ "pulvinar mauris. Curabitur sapien risus, commodo eget turpis at,"
-									+ "elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>");
-							out.println("<p>Donec eget ex magna. Interdum et malesuada fames ac ante"
-									+ "ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet"
-									+ "dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas"
-									+ "enim auctor sit amet. Pellentesque leo mauris, consectetur id"
-									+ "ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia"
-									+ "malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium"
-									+ "pulvinar mauris. Curabitur sapien risus, commodo eget turpis at,"
-									+ "elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>");
+
+							for (int i = 1; i <= ListeGlobale.size(); i++) {
+								
+								System.out.println("Oobjet de la classe : " + ListeGlobale.get(i));
+
+								switch (ListeGlobale.get(i).getClass().getSimpleName()) {
+								case "Image":
+									String titre = ((Image) ListeGlobale.get(i)).getTitre();
+									out.println("<span class=\"image main\"><img src=\"images/pic11.jpg\" alt=\"" + titre
+											+ "\" /></span>");
+									break;
+								case "Code":
+									String contenu = ((Code) ListeGlobale.get(i)).getContenu();
+
+									out.println("<pre class=\"default prettyprint prettyprinted\" style=\"\">" + "<code>"
+											+ "	<span class=\"pln\">&lt;" + contenu + "&gt;</span>" + "</code>" + "</pre>");
+									break;
+								case "Paragraphe":
+									String texte = ((Paragraphe) ListeGlobale.get(i)).getContenu();
+
+									out.println("<p>" + texte + "</p>");
+									break;
+								default:
+									System.out.println("Classe inconnue");
+									out.println("<p>INCONNU</p>");
+								}
+							}
 
 							out.println("<hr class=\"major\" />");
 						}

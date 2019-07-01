@@ -1,5 +1,6 @@
 package com.absoluteknowledge.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,15 +12,34 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Cours {
+public class Cours implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3895256227227854546L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cours")
 	List<Chapitre> chapitres = new ArrayList<Chapitre>();
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cours")
-	List<Quizz> quizzs = new ArrayList<Quizz>();
-	public String titre = "";
+
+	@OneToMany(cascade=CascadeType.ALL,mappedBy ="cours")
+	List<Quizz> quizzs= new ArrayList<Quizz>();
+	private String titre="";
+	private String resume="";
+	public String getResume() {
+		return resume;
+	}
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	private String image="";
 
 	public List<Chapitre> getChapitres() {
 		return chapitres;
