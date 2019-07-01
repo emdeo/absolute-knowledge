@@ -1,8 +1,8 @@
 <%@page import="com.absoluteknowledge.model.Cours"%>
 <%@page import="java.util.List"%>
+<%@page import="com.absoluteknowledge.service.ServiceCours"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="com.absoluteknowledge.service.ServiceCours" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,54 +27,27 @@
 					<a href="index.jsp" class="logo"><strong>Absolute
 							Knowledge</strong> by M2i</a>
 					<ul class="icons">
-
 						<li class="active"><a href="index.jsp"><span>Accueil</span></a></li>
 						<li><a href="cours.jsp"><span>Cours</span></a></li>
-
 					</ul>
 
 				</header>
-
-				<!-- Banner -->
-				<section id="banner">
-					<div class="content">
-						<header>
-							<h1>Bienvenue, petit néophyte !</h1>
-							<p>Un site pour apprendre la programmation</p>
-						</header>
-						<p>
-							<strong>Absolute Knowledge</strong> est né des doigts experts de
-							plusieurs développeurs acharnés. Son doux nom fut donné par <strong>Michael</strong>
-							(à  prononcer à  la française ou à l'américaine). </br>Nous espérons
-							que ton voyage dans l'apprentissage de l'informatique se
-							déroulera sans trop d'encombres...
-						</p>
-						<ul class="actions">
-							<li><a href="#" class="button big">Voir plus</a></li>
-						</ul>
-					</div>
-					<span class="image object"> <img src="images/pic10.jpg"
-						alt="" />
-					</span>
-				</section>
 
 
 
 				<!-- Section -->
 				<section>
 					<header class="major">
-						<h2>Cours à la une</h2>
+						<h2>Liste des cours</h2>
 					</header>
 					<div class="posts">
-
 					
-					<%
+						<%
 					
 					ServiceCours sc = new ServiceCours();
 					List<Cours> lstCours = sc.getAllCours();
 					
-					
- 					for (int i=0; i<1; i++) {
+ 					for (int i=0; i<lstCours.size(); i++) {
 						 
 						 // rÃ©cupÃ©rer le chapitre sÃ©lectionnÃ©
 						 String article = "<article><a href='chapitre.jsp?id=";
@@ -91,9 +64,6 @@
 					
 					
 					%>  
-
-					
-					
 					</div>
 				</section>
 
