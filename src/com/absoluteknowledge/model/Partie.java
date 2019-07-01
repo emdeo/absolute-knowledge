@@ -1,4 +1,5 @@
 package com.absoluteknowledge.model;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Partie {
+public class Partie implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4684065521693617174L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;

@@ -1,8 +1,12 @@
 package com.absoluteknowledge.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class QuestionQcm {
+public class QuestionQcm implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
@@ -19,6 +23,7 @@ public class QuestionQcm {
     @JoinColumn(name ="fk_quizz")
     private Quizz quizz;
 	private String question="";
+	@ElementCollection
 	private List<String> choix = new ArrayList<String>();
 	//Indice de la reponse dans la lsite choix
 	private int reponseIndex;

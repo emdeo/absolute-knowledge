@@ -1,8 +1,13 @@
 package com.absoluteknowledge.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.transaction.SystemException;
 
 import org.hibernate.Session;
@@ -37,6 +42,22 @@ public class ServiceCours {
 			}
 		}
 		return cour2;
+	}
+	//Utilisation de criteriaQuery pour essayer
+	public List<Cours> getAllCours(){
+		List<Cours> result = new ArrayList<Cours>();
+		Session session = HibernateUtil.getSessionFactory().openSession(); 
+		EntityManager em = session.getEntityManagerFactory().createEntityManager();
+		
+		 final CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+	        CriteriaQuery<Cours> crit = criteriaBuilder.createQuery(Cours.class);
+	        Root<Cours> root = crit.from(Cours.class);
+//	        crit.where(criteriaBuilder.equal(root.get("user_name"), userName))
+//	            .distinct(true);
+	        CriteriaQuery<Cours> all = crit.select(root);
+	        result = em.createQuery( all ).getResultList();
+	        
+		return result;
 	}
 //	public Chapitre getOneChapitreByTitle(String title){
 //		Session session = HibernateUtil.getSessionFactory().openSession();
