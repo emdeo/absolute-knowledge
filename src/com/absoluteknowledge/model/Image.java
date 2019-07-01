@@ -30,6 +30,7 @@ public class Image implements Serializable{
 	public String titre="";
 	private String legende="";
 	private String url="";
+	
 	public String getLegende() {
 		return legende;
 	}

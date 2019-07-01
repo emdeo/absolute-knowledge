@@ -1,4 +1,5 @@
 package com.absoluteknowledge.model;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,34 +14,40 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Quizz implements Serializable{
+public class Quizz implements Serializable {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
+
 	@ManyToOne
-    @JoinColumn(name ="fk_cours")
-    private Cours cours;
-	private String titre="";
-	@OneToMany(cascade=CascadeType.ALL,mappedBy ="quizz")
-	List<QuestionQcm> questionQcms= new ArrayList<QuestionQcm>();
+	@JoinColumn(name = "fk_cours")
+	private Cours cours;
+	private String titre = "";
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "quizz")
+	List<QuestionQcm> questionQcms = new ArrayList<QuestionQcm>();
+
 	public Cours getCours() {
 		return cours;
 	}
+
 	public void setCours(Cours cours) {
 		this.cours = cours;
 	}
+
 	public String getTitre() {
 		return titre;
 	}
+
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
+
 	public List<QuestionQcm> getQuestionQcms() {
 		return questionQcms;
 	}
+
 	public void setQuestionQcms(List<QuestionQcm> questionQcms) {
 		this.questionQcms = questionQcms;
 	}
-	
+
 }

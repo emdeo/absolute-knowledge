@@ -33,7 +33,6 @@ public class Paragraphe implements Serializable{
 	private Partie partie;
 	public String titre = "";
 	
-
 	public Partie getPartie() {
 		return partie;
 	}
