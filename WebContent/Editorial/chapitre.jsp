@@ -161,6 +161,7 @@
 						</h1>
 					</header>
 
+
 					<%
 						for (Partie p : chap.getParties()) {
 							out.println("<h2 id=\"" + p.getTitre() + "\">" + p.getTitre() + "</h2>");
