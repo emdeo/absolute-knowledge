@@ -1,4 +1,5 @@
 package com.absoluteknowledge.model;
+
 import java.io.Serializable;
 
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Paragraphe implements Serializable{
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private int indexee;
 	private String contenu="";
@@ -28,18 +29,33 @@ public class Paragraphe implements Serializable{
 		this.indexee = index;
 	}
 	@ManyToOne
-    @JoinColumn(name ="fk_partie")
-    private Partie partie;
-	public String titre="";
+	@JoinColumn(name = "fk_partie")
+	private Partie partie;
+	public String titre = "";
+	
+	// Ajout� par Maithaa, Julien, Manu
+	private String contenu;
+
+	public String getContenu() {
+		return contenu;
+	}
+
+	public void setContenu(String contenu) {
+		this.contenu = contenu;
+	}
+
 	public Partie getPartie() {
 		return partie;
 	}
+
 	public void setPartie(Partie partie) {
 		this.partie = partie;
 	}
+
 	public String getTitre() {
 		return titre;
 	}
+
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}

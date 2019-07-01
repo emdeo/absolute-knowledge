@@ -18,10 +18,11 @@ public class Cours implements Serializable{
 	 */
 	private static final long serialVersionUID = 3895256227227854546L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	@OneToMany(cascade=CascadeType.ALL,mappedBy ="cours")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cours")
 	List<Chapitre> chapitres = new ArrayList<Chapitre>();
+
 	@OneToMany(cascade=CascadeType.ALL,mappedBy ="cours")
 	List<Quizz> quizzs= new ArrayList<Quizz>();
 	private String titre="";
@@ -39,24 +40,31 @@ public class Cours implements Serializable{
 		this.image = image;
 	}
 	private String image="";
+
 	public List<Chapitre> getChapitres() {
 		return chapitres;
 	}
+
 	public void setChapitres(List<Chapitre> chapitres) {
 		this.chapitres = chapitres;
 	}
+
 	public List<Quizz> getQuizzs() {
 		return quizzs;
 	}
+
 	public void setQuizzs(List<Quizz> quizzs) {
 		this.quizzs = quizzs;
 	}
+
 	public String getTitre() {
 		return titre;
 	}
+
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -77,6 +85,5 @@ public class Cours implements Serializable{
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
+
 }
