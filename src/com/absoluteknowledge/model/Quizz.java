@@ -22,6 +22,13 @@ public class Quizz implements Serializable{
     @JoinColumn(name ="fk_cours")
     private Cours cours;
 	private String titre="";
+	private int indexee;
+	public int getIndexee() {
+		return indexee;
+	}
+	public void setIndexee(int indexee) {
+		this.indexee = indexee;
+	}
 	@OneToMany(cascade=CascadeType.ALL,mappedBy ="quizz")
 	List<QuestionQcm> questionQcms= new ArrayList<QuestionQcm>();
 	public Cours getCours() {
@@ -44,3 +51,4 @@ public class Quizz implements Serializable{
 	}
 	
 }
+

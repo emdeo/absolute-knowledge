@@ -39,15 +39,15 @@
 				<section id="banner">
 					<div class="content">
 						<header>
-							<h1>Bienvenue, petit n�ophyte !</h1>
+							<h1>Bienvenue, petit néophyte !</h1>
 							<p>Un site pour apprendre la programmation</p>
 						</header>
 						<p>
-							<strong>Absolute Knowledge</strong> est n� des doigts experts de
-							plusieurs d�veloppeurs acharn�s. Son doux nom fut donn� par <strong>Michael</strong>
-							(� prononcer � la fran�aise ou �l'am�ricaine). </br>Nous esp�rons
+							<strong>Absolute Knowledge</strong> est né des doigts experts de
+							plusieurs développeurs acharnés. Son doux nom fut donné par <strong>Michael</strong>
+							(à  prononcer à  la française ou à l'américaine). </br>Nous espérons
 							que ton voyage dans l'apprentissage de l'informatique se
-							d�roulera sans trop d'encombres...
+							déroulera sans trop d'encombres...
 						</p>
 						<ul class="actions">
 							<li><a href="#" class="button big">Voir plus</a></li>
@@ -63,7 +63,7 @@
 				<!-- Section -->
 				<section>
 					<header class="major">
-						<h2>Cours � la une</h2>
+						<h2>Cours à la une</h2>
 					</header>
 					<div class="posts">
 
@@ -76,7 +76,7 @@
 					
  					for (int i=0; i<1; i++) {
 						 
-						 // récupérer le chapitre sélectionné
+						 // rÃ©cupÃ©rer le chapitre sÃ©lectionnÃ©
 						 String article = "<article><a href='chapitre.jsp?id=";
 						 article += lstCours.get(i).getId() + "' class='image'><img src='";
 						 article += lstCours.get(i).getImage() + "' alt=''/></a><h3>";
@@ -118,4 +118,5 @@
 	<script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
