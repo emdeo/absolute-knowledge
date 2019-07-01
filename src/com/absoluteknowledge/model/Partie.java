@@ -81,5 +81,5 @@ public class Partie implements Serializable{
 
 	public void setTitre(String titre) {
 		this.titre = titre;
-	}
+	}	
 }
