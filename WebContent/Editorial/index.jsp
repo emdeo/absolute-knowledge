@@ -24,9 +24,17 @@
 					<a href="index.jsp" class="logo"><strong>Absolute
 							Knowledge</strong> by M2i</a>
 					<ul class="icons">
+
 						<li class="active"><a href="index.jsp"><span>Accueil</span></a></li>
 						<li><a href="cours.jsp"><span>Cours</span></a></li>
 						<li><a href="quizz.jsp"><span>Quizz</span></a></li>
+
+						<!-- Search -->
+						<li id="search" class="alt">
+							<form method="post" action="#">
+								<input type="text" name="query" id="query" placeholder="Search" />
+							</form>
+						</li>
 					</ul>
 
 				</header>
@@ -62,8 +70,21 @@
 						<h2>Cours à  la une</h2>
 					</header>
 					<div class="posts">
+
+
+						<%-- 					<% // récupère tous les cours à partir de la DAO et affiche les miniatures (donc supprimer les balises "article" après)
+					
+					for (Cours c: cours) {
+						
+					}
+					
+					
+					
+					
+					%> --%>
+
 						<article>
-							<a href="github.jsp" class="image"><img
+							<a href="chapitre1.jsp?id=" " class="image"><img
 								src="images/pic01.jpg" alt="" /></a>
 							<h3>Github</h3>
 							<p>Aenean ornare velit lacus, ac varius enim lorem

@@ -49,6 +49,17 @@ public class ServiceCours {
 		}
 	}
 
+	
+	/**
+	 * Récupérer un cours dans la BDD
+	 * (changer pour passer par entity manager)
+	 * cf https://thoughts-on-java.org/hibernate-best-practices/
+	 * 
+	 * @param id
+	 * @return
+	 * @throws IllegalStateException
+	 * @throws SystemException
+	 */
 	public Cours getCoursById(long id) throws IllegalStateException, SystemException {
 		Session session = null;
 		Transaction transaction = null;
@@ -57,6 +68,7 @@ public class ServiceCours {
 			session = HibernateUtil.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
 			cour2 = (Cours) session.get(Cours.class, id);
+
 			// C'est pas utile ici, mais quand on fait un save, ca peut forcer la sauvegarde
 			// sur la db immediatement
 //			session.flush();
@@ -82,6 +94,12 @@ public class ServiceCours {
 
 	// Utilisation de criteriaQuery pour essayer
 	//Maintenant ce n'est plus fait avec hibernate, mais avec jpa, c'est depreciated via hibernate
+	/**
+	 * Récupérer tous les cours de la BDD
+	 * Utilisation de criteriaQuery pour essayer
+	 * 
+	 * @return
+	 */
 	public List<Cours> getAllCours() {
 		List<Cours> result = new ArrayList<Cours>();
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -96,7 +114,7 @@ public class ServiceCours {
 		result = em.createQuery(all).getResultList();
 		
 		result.forEach(elem->orderByIndex(elem));
-	
+
 		return result;
 	}
 	public List<Chapitre> getChapitreByTitle(String title) {
