@@ -1,7 +1,7 @@
 <%@page import="com.absoluteknowledge.model.*"%>
 <%@page import="com.absoluteknowledge.service.*"%>
 <%@page import="java.util.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
@@ -73,7 +73,7 @@
 					<%
 						// Pour chaque partie du chapitre...
 						for (Partie p : lstParties) {
-							out.println("<h2 id=\"" + p.getTitre() + "\">" + p.getTitre() + "</h2>");
+							out.println("<h2 id=\"Partie" + p.getIndexee() + "\">" + p.getTitre() + "</h2>");
 
 							// Liste de tous les éléments de la partie (paragraphes, images, code)
 							Map<Integer, Object> ListeGlobale = new HashMap<Integer, Object>();
@@ -117,7 +117,7 @@
 
 							System.out.println("ListeGlobale : " + ListeGlobale);
 
-							for (int i = 1; i <= ListeGlobale.size(); i++) {
+							for (int i = 0; i < ListeGlobale.size(); i++) {
 
 								System.out.println("Oobjet de la classe : " + ListeGlobale.get(i));
 
@@ -131,7 +131,7 @@
 									String contenu = ((Code) ListeGlobale.get(i)).getContenu();
 
 									out.println("<pre class=\"default prettyprint prettyprinted\" style=\"\">" + "<code>"
-											+ "	<span class=\"pln\">&lt;" + contenu + "&gt;</span>" + "</code>" + "</pre>");
+											 + contenu + "</code>" + "</pre>");
 									break;
 								case "Paragraphe":
 									String texte = ((Paragraphe) ListeGlobale.get(i)).getContenu();
@@ -189,7 +189,7 @@
 								out.println("<li><span class=\"opener\">" + ch.getTitre() + "</span>");
 								out.println("<ul>");
 								for (Partie p : ch.getParties()) {
-									out.println("<li><a href=\"?id_chapitre=" + cours.getChapitres().indexOf(ch) + "#" + p.getTitre()
+									out.println("<li><a href=\"?id_chapitre=" + cours.getChapitres().indexOf(ch) + "#Partie" + p.getIndexee()
 											+ "\">" + p.getTitre() + "</a></li>");
 								}
 								out.println("</ul></li>");

@@ -1,8 +1,5 @@
-<%@page import="com.absoluteknowledge.model.Cours"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="com.absoluteknowledge.service.ServiceCours" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +27,14 @@
 
 						<li class="active"><a href="index.jsp"><span>Accueil</span></a></li>
 						<li><a href="cours.jsp"><span>Cours</span></a></li>
+						<li><a href="quizz.jsp"><span>Quizz</span></a></li>
 
+						<!-- Search -->
+						<li id="search" class="alt">
+							<form method="post" action="#">
+								<input type="text" name="query" id="query" placeholder="Search" />
+							</form>
+						</li>
 					</ul>
 
 				</header>
@@ -39,15 +43,15 @@
 				<section id="banner">
 					<div class="content">
 						<header>
-							<h1>Bienvenue, petit nÃ©ophyte !</h1>
+							<h1>Bienvenue, petit néophyte !</h1>
 							<p>Un site pour apprendre la programmation</p>
 						</header>
 						<p>
-							<strong>Absolute Knowledge</strong> est nÃ© des doigts experts de
-							plusieurs dÃ©veloppeurs acharnÃ©s. Son doux nom fut donnÃ© par <strong>Michael</strong>
-							(Ã Â  prononcer Ã Â  la franÃ§aise ou Ã Â l'amÃ©ricaine). </br>Nous espÃ©rons
+							<strong>Absolute Knowledge</strong> est né des doigts experts de
+							plusieurs développeurs acharnés. Son doux nom fut donné par <strong>Michael</strong>
+							(à  prononcer à  la française ou à l'américaine). </br>Nous espérons
 							que ton voyage dans l'apprentissage de l'informatique se
-							dÃ©roulera sans trop d'encombres...
+							déroulera sans trop d'encombres...
 						</p>
 						<ul class="actions">
 							<li><a href="#" class="button big">Voir plus</a></li>
@@ -63,37 +67,53 @@
 				<!-- Section -->
 				<section>
 					<header class="major">
-						<h2>Cours Ã  la une</h2>
+						<h2>Cours à  la une</h2>
 					</header>
 					<div class="posts">
 
-					
-					<%
-					
-					ServiceCours sc = new ServiceCours();
-					List<Cours> lstCours = sc.getAllCours();
-					
-					
- 					for (int i=0; i<1; i++) {
-						 
-						 // rÃƒÂ©cupÃƒÂ©rer le chapitre sÃƒÂ©lectionnÃƒÂ©
-						 String article = "<article><a href='chapitre.jsp?id=";
-						 article += lstCours.get(i).getId() + "' class='image'><img src='";
-						 article += lstCours.get(i).getImage() + "' alt=''/></a><h3>";
-						 article += lstCours.get(i).getTitre() + "</h3><p>";
-						 article += lstCours.get(i).getResume() + "</p><ul class='actions'><li><a href='chapitre.jsp?id=";
-						 article += lstCours.get(i).getId() + "' class='button'>voir plus</a></li></ul></article>";
-						 
-						 out.println(article);
-						 
-	
-					} 
-					
-					
-					%>  
 
+						<%-- 					<% // récupère tous les cours à partir de la DAO et affiche les miniatures (donc supprimer les balises "article" après)
+					
+					for (Cours c: cours) {
+						
+					}
 					
 					
+					
+					
+					%> --%>
+
+						<article>
+							<a href="chapitre1.jsp?id=" " class="image"><img
+								src="images/pic01.jpg" alt="" /></a>
+							<h3>Github</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem
+								ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed
+								nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+							<h3>Nulla amet dolore</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem
+								ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed
+								nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+							<h3>Nulla amet dolore</h3>
+							<p>Aenean ornare velit lacus, ac varius enim lorem
+								ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed
+								nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</article>
 					</div>
 				</section>
 
@@ -118,5 +138,4 @@
 	<script src="assets/js/main.js"></script>
 
 </body>
-
 </html>
