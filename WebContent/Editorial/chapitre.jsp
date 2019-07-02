@@ -1,4 +1,5 @@
 <%@page import="com.absoluteknowledge.model.*"%>
+<%@page import="com.absoluteknowledge.service.*"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="utf-8"%>
@@ -33,116 +34,25 @@
 				</header>
 
 				<%
-					List<Partie> ListePartChap1 = new ArrayList<Partie>();
-					List<Partie> ListePartChap2 = new ArrayList<Partie>();
-					List<Partie> ListePartChap3 = new ArrayList<Partie>();
-					List<Partie> ListePartChap4 = new ArrayList<Partie>();
-					Partie P1 = new Partie();
-					P1.setTitre("Partie 1 du Chapitre 1");
-					Partie P2 = new Partie();
-					P2.setTitre("Partie 2 du Chapitre 1");
-					Partie P3 = new Partie();
-					P3.setTitre("Partie 1 du Chapitre 2");
-					Partie P4 = new Partie();
-					P4.setTitre("Partie 2 du Chapitre 2");
-					Partie P5 = new Partie();
-					P5.setTitre("Partie 3 du Chapitre 2");
-					Partie P6 = new Partie();
-					P6.setTitre("Partie 1 du Chapitre 3");
-					Partie P7 = new Partie();
-					P7.setTitre("Partie 1 du Chapitre 4");
-					Partie P8 = new Partie();
-					P8.setTitre("Partie 2 du Chapitre 4");
-					ListePartChap1.add(P1);
-					ListePartChap1.add(P2);
-					ListePartChap2.add(P3);
-					ListePartChap2.add(P4);
-					ListePartChap2.add(P5);
-					ListePartChap3.add(P6);
-					ListePartChap4.add(P7);
-					ListePartChap4.add(P8);
+					ServiceCours sc = new ServiceCours();
+					Cours cours = new Cours();
+					cours = sc.getCoursById(1);
 
-					Chapitre Chap1 = new Chapitre();
-					Chapitre Chap2 = new Chapitre();
-					Chapitre Chap3 = new Chapitre();
-					Chapitre Chap4 = new Chapitre();
+					// Liste de chapitres
+					List<Chapitre> lstChapitres = cours.getChapitres();
 
-					Chap1.setParties(ListePartChap1);
-					Chap1.setTitre("Chapitre 1");
-
-					Chap2.setParties(ListePartChap2);
-					Chap2.setTitre("Second chapitre");
-
-					Chap3.setParties(ListePartChap3);
-					Chap3.setTitre("3ème chapitre");
-
-					Chap4.setParties(ListePartChap4);
-					Chap4.setTitre("4ème chapitre");
-
-					Cours C1 = new Cours();
-					List<Chapitre> ListeChap = new ArrayList<Chapitre>();
-					ListeChap.add(Chap1);
-					ListeChap.add(Chap2);
-					ListeChap.add(Chap3);
-					ListeChap.add(Chap4);
-
-					C1.setChapitres(ListeChap);
-					C1.setTitre("Mon cours GIT");
-
-					/*
-						Listes de paragraphes, images et codes du chapitre 1 (partie 1).
-						On ne s'attend à aucun doublon parmi les index de chaque objet (image, paragraphe ou code).
-					*/
-					List<Image> lstImg = new ArrayList<Image>();
-					List<Paragraphe> lstParag = new ArrayList<Paragraphe>();
-					List<Code> lstCode = new ArrayList<Code>();
-
-					Image im1 = new Image();
-					im1.setTitre("Image 1");
-					im1.setIndex(1);
-
-					Image im2 = new Image();
-					im2.setTitre("Image 2");
-					im2.setIndex(4);
-
-					Code cod1 = new Code();
-					cod1.setContenu("Hello World");
-					cod1.setIndexee(2);
-
-					Code cod2 = new Code();
-					cod2.setContenu("Hello M2I");
-					cod2.setIndexee(6);
-
-					Paragraphe p1 = new Paragraphe();
-					p1.setContenu("Explication de paragraphe P1");
-					p1.setIndexee(3);
-
-					Paragraphe p2 = new Paragraphe();
-					p2.setContenu("Explication de paragraphe P2");
-					p2.setIndexee(5);
-
-					lstImg.add(im1);
-					lstImg.add(im2);
-					lstParag.add(p1);
-					lstParag.add(p2);
-					lstCode.add(cod1);
-					lstCode.add(cod2);
-
-					Map<Integer, Object> ListeGlobale = new HashMap<Integer, Object>();
-
-					for (int i = 0; i < lstImg.size(); i++) {
-						ListeGlobale.put(lstImg.get(i).getIndexee(), lstImg.get(i));
+					// Récupérer le chapitre sélectionné par l'utilisateur
+					int id_chapitre = Integer.parseInt(request.getParameter("id_chapitre"));
+					Chapitre chapitre = null;
+					for (Chapitre chap : lstChapitres) {
+						if (chap.getIndexee() == id_chapitre) {
+							chapitre = chap;
+							break;
+						}
 					}
 
-					for (int i = 0; i < lstParag.size(); i++) {
-						ListeGlobale.put(lstParag.get(i).getIndexee(), lstParag.get(i));
-					}
-
-					for (int i = 0; i < lstCode.size(); i++) {
-						ListeGlobale.put(lstCode.get(i).getIndexee(), lstCode.get(i));
-					}
-
-					System.out.println("ListeGlobale : " + ListeGlobale);
+					// Liste de parties du chapitre
+					List<Partie> lstParties = chapitre.getParties();
 				%>
 
 				<!-- Content -->
@@ -152,9 +62,7 @@
 
 							<%
 								/* Nom du chapitre */
-								int id_chapitre = Integer.parseInt(request.getParameter("id_chapitre"));
-								Chapitre chap = C1.getChapitres().get(id_chapitre);
-								String titreChapitre = chap.getTitre();
+								String titreChapitre = chapitre.getTitre();
 								out.println(titreChapitre);
 							%>
 
@@ -163,11 +71,54 @@
 
 
 					<%
-						for (Partie p : chap.getParties()) {
+						// Pour chaque partie du chapitre...
+						for (Partie p : lstParties) {
 							out.println("<h2 id=\"" + p.getTitre() + "\">" + p.getTitre() + "</h2>");
 
+							// Liste de tous les éléments de la partie (paragraphes, images, code)
+							Map<Integer, Object> ListeGlobale = new HashMap<Integer, Object>();
+
+							/*
+								Listes de paragraphes, images et codes du chapitre (pour chaque partie).
+								On ne s'attend à aucun doublon parmi les indexee de chaque objet (image, paragraphe ou code).
+							*/
+							List<Image> lstImg = p.getImages();
+							List<Paragraphe> lstParag = p.getParagraphes();
+							List<Code> lstCode = p.getCodes();
+
+							
+							
+							
+							
+							/*
+								REPRENDRE ICI :
+								TOUS LES OBJETS DE LA CLASSE PARAGRAPHE NE S'AFFICHENT PAS DANS LA CONSOLE
+								(doublons d'indexee avec un autre élément de la partie ?)
+							*/
+
+							
+							
+							
+							
+							// Liste des paragraphes
+							System.out.println("Liste des paragraphes : " + lstParag);
+
+							for (Paragraphe parag : lstParag) {
+								ListeGlobale.put(parag.getIndexee(), parag);
+							}
+
+							for (Image image : lstImg) {
+								ListeGlobale.put(image.getIndexee(), image);
+							}
+
+							for (Code code : lstCode) {
+								ListeGlobale.put(code.getIndexee(), code);
+							}
+
+							System.out.println("ListeGlobale : " + ListeGlobale);
+
 							for (int i = 1; i <= ListeGlobale.size(); i++) {
-								
+
 								System.out.println("Oobjet de la classe : " + ListeGlobale.get(i));
 
 								switch (ListeGlobale.get(i).getClass().getSimpleName()) {
@@ -234,11 +185,11 @@
 					<!-- Table des matières (avec liens clickables) -->
 					<ul>
 						<%
-							for (Chapitre ch : C1.getChapitres()) {
+							for (Chapitre ch : cours.getChapitres()) {
 								out.println("<li><span class=\"opener\">" + ch.getTitre() + "</span>");
 								out.println("<ul>");
 								for (Partie p : ch.getParties()) {
-									out.println("<li><a href=\"?id_chapitre=" + C1.getChapitres().indexOf(ch) + "#" + p.getTitre()
+									out.println("<li><a href=\"?id_chapitre=" + cours.getChapitres().indexOf(ch) + "#" + p.getTitre()
 											+ "\">" + p.getTitre() + "</a></li>");
 								}
 								out.println("</ul></li>");
