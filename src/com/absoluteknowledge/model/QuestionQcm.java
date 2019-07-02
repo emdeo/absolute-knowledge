@@ -16,6 +16,10 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class QuestionQcm implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2431724319599512318L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
@@ -23,6 +27,13 @@ public class QuestionQcm implements Serializable{
     @JoinColumn(name ="fk_quizz")
     private Quizz quizz;
 	private String question="";
+	private int indexee;
+	public int getIndexee() {
+		return indexee;
+	}
+	public void setIndexee(int indexee) {
+		this.indexee = indexee;
+	}
 	@ElementCollection
 	private List<String> choix = new ArrayList<String>();
 	//Indice de la reponse dans la lsite choix
